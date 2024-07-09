@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:benjamin/appinstance.dart';
+import 'package:benjamin/core/app/appinstance.dart';
 import 'package:benjamin/widget/custom_text_form_field.dart';
 import 'package:benjamin/core/service_locator/servicelocator.dart';
 import 'package:benjamin/core/managers/singleton_manager/imanagers.dart';

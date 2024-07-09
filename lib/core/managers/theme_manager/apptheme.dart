@@ -10,7 +10,7 @@ class AppTheme {
       primaryColor: ColorHelper.black,
       primaryColorLight: ColorHelper.black2,
       scaffoldBackgroundColor: ColorHelper.white,
-      colorScheme: const ColorScheme.light(
+      colorScheme: ColorScheme.light(
         primary: ColorHelper.white,
         secondary: ColorHelper.black2,
       ),

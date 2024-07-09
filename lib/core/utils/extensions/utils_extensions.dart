@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 // ignore_for_file: deprecated_member_use
 
@@ -7,7 +6,6 @@ extension Layout on BuildContext {
   num get figmaHeight => 800;
 
   num get figmaWidth => 300;
-
 
   ///get app size
   Size getAppSize() => MediaQuery.of(this).size;
@@ -42,7 +40,6 @@ extension Layout on BuildContext {
 }
 
 extension ISizer on int {
-
   MediaQueryData get mq => MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.single);
 
   // ignore: non_constant_identifier_names
@@ -67,4 +64,22 @@ extension ISizer on int {
 
 extension DataType on int {
   double get d => toDouble();
+}
+
+extension Spacer on double {
+  Widget get spaceH => SizedBox(
+        height: this,
+      );
+
+  Widget get spaceW => SizedBox(
+        height: this,
+      );
+}
+
+extension RemoveSpaces on String {
+  String get removeSpaces => replaceAll(" ", "");
+}
+
+extension Nav on BuildContext {
+  dynamic get close => Navigator.pop(this);
 }

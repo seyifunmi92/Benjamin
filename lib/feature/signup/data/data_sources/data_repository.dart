@@ -1,4 +1,5 @@
 /// list of states in the US
+library;
 
 List statesIntheUS = [
   "Alabama",
