@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:benjamin/core/utils/extensions/utils_extensions.dart';
 import 'package:benjamin/core/managers/singleton_manager/imanagers.dart';
+import 'package:benjamin/core/managers/service_manager/api/network_codes.dart';
 import 'package:benjamin/feature/signup/data/repositories/searchrepository.dart';
+
 // ignore_for_file: prefer_final_fields
 
 abstract class AutocompleteHandler {
 //update auto complete list
-  updateAutocompleteData(List<dynamic> e, String value);
+  updateAutocompleteData(String value);
 
   Future<void> updateShowAutocompleteContainer(String value);
 
@@ -46,27 +49,41 @@ class AutoCompleteHandlerImpl implements AutocompleteHandler {
 
   TextEditingController get state => _state;
 
+  dynamic _response;
+
+  dynamic get response => _response;
+
   ///update autocompete array
   @override
-  updateAutocompleteData(List e, String value) async {
+
+  ///call api to get search results
+  updateAutocompleteData(String value) async {
     var x = await Imanagers.search.getSearchResults();
-
-    print(x.body);
-    print(x.code);
-
-    // _autocompletedata.clear();
-    // _autocompletedata.addAll(e);
-    // _autocompletedata.retainWhere((x) => x.toString().toLowerCase().removeSpaces.startsWith(value.toLowerCase().removeSpaces));
+    x.code == httpStatusCodes.OK ? onSuccessCall(jsonDecode(x.body!), value) : onExceptionCall(x.body!);
   }
 
-  ///set autocomplete to show after 2 or more values are inputed
+
+///on success response from API
+  onSuccessCall(dynamic response, String value) {
+    _response = response;
+    _response as List<dynamic>;
+    _response.retainWhere((x) => x.toString().toLowerCase().removeSpaces.startsWith(value.toLowerCase().removeSpaces));
+  }
+
+
+///handle error
+  onExceptionCall(String error) {}
+
   @override
+
+    ///set autocomplete to show after 2 or more values are inputed
   updateShowAutocompleteContainer(String value) async => await setShowAutocomplete(value.length >= 2 ? true : false);
+
 
   setShowAutocomplete(bool value) => _showsuggestionsstreet1 = value;
 
-  ///update
   @override
+    ///update text field after selection
   Future<String> updateSelectedField(String value) async {
     _street1.text = value;
     return _street1.text;

@@ -36,16 +36,16 @@ class _BenjaminState extends State<Benjamin> {
                   validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.street1.text, "Street Address"),
                   onchanged: (s) async {
                     await Imanagers.autocomplete.updateShowAutocompleteContainer(s);
-                    Imanagers.autocompleteimpl.showSuggestionsStreet1 ? await Imanagers.autocomplete.updateAutocompleteData(statesIntheUS, s) : null;
+                    Imanagers.autocompleteimpl.showSuggestionsStreet1 ? await Imanagers.autocomplete.updateAutocompleteData(s) : null;
                     setState(() {});
                   },
                   controller: Imanagers.autocompleteimpl.street1,
                 ),
                 20.h.spaceH,
                 Imanagers.autocompleteimpl.showSuggestionsStreet1 ? 0.h.spaceH : 20.h.spaceH,
-                Imanagers.autocompleteimpl.showSuggestionsStreet1 && !Imanagers.autocompleteimpl.autocompletedata.isEmpty
+                Imanagers.autocompleteimpl.showSuggestionsStreet1 && !Imanagers.autocompleteimpl.response.isEmpty
                     ? SuggestionContainer(
-                        Imanagers.autocompleteimpl.autocompletedata,
+                        Imanagers.autocompleteimpl.response,
                         onComplete: () {
                           Imanagers.autocompleteimpl.setShowAutocomplete(false);
                           setState(() {});
