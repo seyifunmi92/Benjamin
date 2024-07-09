@@ -3,6 +3,7 @@ import 'package:benjamin/core/utils/extensions/utils_extensions.dart';
 // ignore_for_file: prefer_final_fields
 
 abstract class AutocompleteHandler {
+
 //update auto complete list
   updateAutocompleteData(List<dynamic> e, String value);
 
@@ -13,6 +14,7 @@ abstract class AutocompleteHandler {
 
 ///implement auto complete handler class
 class AutoCompleteHandlerImpl implements AutocompleteHandler {
+
   AutoCompleteHandlerImpl._internal();
   static AutoCompleteHandlerImpl instance = AutoCompleteHandlerImpl._internal();
 
@@ -58,15 +60,10 @@ class AutoCompleteHandlerImpl implements AutocompleteHandler {
 
   setShowAutocomplete(bool value) => _showsuggestionsstreet1 = value;
 
-  setSuggestionsbool() {
-    _showsuggestionsstreet1 = false;
-  }
-
   ///update
   @override
   Future<String> updateSelectedField(String value) async {
     _street1.text = value;
-
     return _street1.text;
   }
 }

@@ -3,6 +3,7 @@ import 'package:benjamin/core/service_locator/servicelocator.dart';
 import 'package:benjamin/core/managers/theme_manager/apptheme.dart';
 import 'package:benjamin/feature/signup/presentation/pages/benjamin.dart';
 import 'package:benjamin/feature/signup/domain/usecases/logic/autocomplete.dart';
+import 'package:benjamin/feature/signup/domain/usecases/validation/validate_form.dart';
 
 class Imanagers {
   ///define singletons as managers
@@ -11,4 +12,6 @@ class Imanagers {
   static AppTheme theme = getIt<AppTheme>();
   static AutocompleteHandler autocomplete = getIt<AutocompleteHandler>();
   static AutoCompleteHandlerImpl autocompleteimpl = getIt<AutoCompleteHandlerImpl>();
+  static Validator validate = getIt<Validator>();
+  static ValidatorImpl validatorimpl = getIt<ValidatorImpl>();
 }

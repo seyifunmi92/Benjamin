@@ -3,6 +3,7 @@ import 'package:benjamin/core/app/appinstance.dart';
 import 'package:benjamin/core/managers/theme_manager/apptheme.dart';
 import 'package:benjamin/feature/signup/presentation/pages/benjamin.dart';
 import 'package:benjamin/feature/signup/domain/usecases/logic/autocomplete.dart';
+import 'package:benjamin/feature/signup/domain/usecases/validation/validate_form.dart';
 // ignore_for_file: prefer_const_constructors
 
 GetIt get getIt => GetIt.instance;
@@ -21,5 +22,9 @@ intializeServiceLocator() {
 
     ///register autocomplete singleton
     ..registerSingleton<AutocompleteHandler>(AutoCompleteHandlerImpl.instance)
-    ..registerSingleton<AutoCompleteHandlerImpl>(AutoCompleteHandlerImpl.instance);
+    ..registerSingleton<AutoCompleteHandlerImpl>(AutoCompleteHandlerImpl.instance)
+
+    ///register validator singleton
+    ..registerSingleton<Validator>(ValidatorImpl.instance)
+    ..registerSingleton<ValidatorImpl>(ValidatorImpl.instance);
 }
