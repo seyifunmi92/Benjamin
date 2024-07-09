@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class Validator {
-  onValidate(s);
+  ///generic validation on all forms
+  onValidate(s, val);
 
-  Future<bool> validateForm();
-
-  // validateStreet2(s);
-
-  // validateCity(s);
-
-  // validateZip(s);
-
-  // validateState(s);
+//validate specific form and update the isFormValidated param
+  validateForm();
 }
 
 class ValidatorImpl implements Validator {
@@ -27,26 +21,14 @@ class ValidatorImpl implements Validator {
   bool get isformValidated => _isformValidated;
 
   @override
-  onValidate(s) {
+  onValidate(s, val) {
     if (s.toString().isEmpty) {
-      return "Field can not be empty";
+      return "$val can not be empty";
     }
   }
 
-  // @override
-  // validateStreet2() {}
-
-  // @override
-  // validateCity() {}
-
-  // @override
-  // validateZip() {}
-
-  // @override
-  // validateState() {}
-
   @override
-  Future<bool> validateForm() async {
+  validateForm() {
     _isformValidated = _formKey.currentState!.validate();
 
     return _isformValidated;

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:benjamin/core/utils/extensions/utils_extensions.dart';
+import 'package:benjamin/core/managers/singleton_manager/imanagers.dart';
+import 'package:benjamin/feature/signup/data/repositories/searchrepository.dart';
 // ignore_for_file: prefer_final_fields
 
 abstract class AutocompleteHandler {
-
 //update auto complete list
   updateAutocompleteData(List<dynamic> e, String value);
 
@@ -14,7 +15,6 @@ abstract class AutocompleteHandler {
 
 ///implement auto complete handler class
 class AutoCompleteHandlerImpl implements AutocompleteHandler {
-
   AutoCompleteHandlerImpl._internal();
   static AutoCompleteHandlerImpl instance = AutoCompleteHandlerImpl._internal();
 
@@ -48,10 +48,15 @@ class AutoCompleteHandlerImpl implements AutocompleteHandler {
 
   ///update autocompete array
   @override
-  updateAutocompleteData(List e, String value) {
-    _autocompletedata.clear();
-    _autocompletedata.addAll(e);
-    _autocompletedata.retainWhere((x) => x.toString().toLowerCase().removeSpaces.startsWith(value.toLowerCase().removeSpaces));
+  updateAutocompleteData(List e, String value) async {
+    var x = await Imanagers.search.getSearchResults();
+
+    print(x.body);
+    print(x.code);
+
+    // _autocompletedata.clear();
+    // _autocompletedata.addAll(e);
+    // _autocompletedata.retainWhere((x) => x.toString().toLowerCase().removeSpaces.startsWith(value.toLowerCase().removeSpaces));
   }
 
   ///set autocomplete to show after 2 or more values are inputed

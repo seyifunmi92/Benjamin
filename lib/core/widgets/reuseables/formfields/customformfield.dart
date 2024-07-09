@@ -59,7 +59,7 @@ class IFormField extends StatelessWidget {
       maxLength: maxlength,
       maxLines: maxlines,
       decoration: InputDecoration(
-        errorStyle: TextStyle(color: context.primaryColor),
+        errorStyle: TextStyle(color: context.primaryColor.withOpacity(.6), fontFamily: "josefin"),
         suffixStyle: TextStyle(
           fontWeight: FontWeight.w300,
           fontSize: 15.f,
@@ -103,7 +103,7 @@ class IFormField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: context.primaryColor.withOpacity(.1))),
         border: const OutlineInputBorder(),
         focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
-        errorBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.red, style: BorderStyle.solid)),
+        errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.red.withOpacity(.5), style: BorderStyle.solid)),
         contentPadding: const EdgeInsets.fromLTRB(8, 18, 8, 18),
         isCollapsed: true,
       ),

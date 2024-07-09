@@ -33,7 +33,7 @@ class _BenjaminState extends State<Benjamin> {
                   context,
                   title: "Street Address",
                   onT: () {},
-                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.street1.text),
+                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.street1.text, "Street Address"),
                   onchanged: (s) async {
                     await Imanagers.autocomplete.updateShowAutocompleteContainer(s);
                     Imanagers.autocompleteimpl.showSuggestionsStreet1 ? await Imanagers.autocomplete.updateAutocompleteData(statesIntheUS, s) : null;
@@ -56,7 +56,7 @@ class _BenjaminState extends State<Benjamin> {
                   context,
                   title: "Street Address Line 2",
                   onT: () {},
-                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.street2.text),
+                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.street2.text, "Street Address Line 2"),
                   controller: Imanagers.autocompleteimpl.street2,
                 ),
                 20.h.spaceH,
@@ -68,7 +68,7 @@ class _BenjaminState extends State<Benjamin> {
                       child: IFormField(
                         context,
                         title: "City",
-                        validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.city.text),
+                        validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.city.text, "City"),
                         controller: Imanagers.autocompleteimpl.city,
                       ),
                     ),
@@ -77,7 +77,7 @@ class _BenjaminState extends State<Benjamin> {
                       child: IFormField(
                         context,
                         title: "Zip",
-                        validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.zip.text),
+                        validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.zip.text, "Zip"),
                         controller: Imanagers.autocompleteimpl.zip,
                       ),
                     ),
@@ -87,7 +87,7 @@ class _BenjaminState extends State<Benjamin> {
                 IFormField(
                   context,
                   title: "State",
-                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.state.text),
+                  validator: (s) => Imanagers.validatorimpl.onValidate(Imanagers.autocompleteimpl.state.text, "State"),
                   controller: Imanagers.autocompleteimpl.state,
                 ),
               ],

@@ -15,13 +15,13 @@ The challenge is split to several different goals described below.
 1. **Autocomplete**: Improve CustomTextFormField widget to support autocomplete options. 
    Use this functionality in the first street address field. The widget should display
    list of hardcoded address suggestions when user has typed 2 or more characters.
-   When field contains less than 2 characters, the field should not display any suggestions.
+   When field contains less than 2 characters, the field should not display any suggestions. done
 
 2. **Autocomplete selection**: When user taps the autocomplete suggestion, the form should
-   update all relevant fields from the address object.
+   update all relevant fields from the address object. done
 
 3. **Form validation**: Implement simple form validation rules for text fields in the form.
-   User should fill all the fields to consider the form being valid.
+   User should fill all the fields to consider the form being valid. done
 
 4. **API integration**: Simulate real world scenario where addresses are fetched from
    external API. For simplicity, the delay to get address suggestions can be set 1 second.
